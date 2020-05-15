@@ -1,0 +1,43 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('hyperswarm-out', {
+        category: 'network',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            peerIdOut: { value: "" },
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "inject.png",
+        label: function () {
+            return this.name || "hyperswarm-out";
+        },
+        outputLabels: ["Output"]
+    });
+</script>
+
+<script type="text/html" data-template-name="hyperswarm-out">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-peerID"><i class="icon-tag"></i>Peer ID</label>
+        <input type="text" id="node-input-peerIdOut" placeholder="hyperswarm Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="hyperswarm-out">
+    <p>Connects to a Net pipe</p>
+
+    <h3>Outputs</h3>
+     <ol class="node-ports">
+         <li>Standard output
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">json</span></dt>
+                 <dd>Added USB devices.</dd>
+             </dl>
+         </li>
+     </ol>
+</script>

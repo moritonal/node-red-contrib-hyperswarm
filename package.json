@@ -1,0 +1,19 @@
+{
+  "name": "node-red-contrib-hyperswarm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "closed",
+  "node-red": {
+    "nodes": {
+      "hyperswarm-in": "hyperswarm-in.js",
+      "hyperswarm-out": "hyperswarm-out.js"
+    }
+  },
+  "dependencies": {
+    "hyperswarm": "^2.14.0"
+  }
+}
