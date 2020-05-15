@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-hyperswarm",
   "version": "1.0.0",
-  "description": "Custom nde for Node-RED to send payloads via Hyperswarm",
+  "description": "Custom node for Node-RED to send payloads via Hyperswarm",
   "main": "hyperswarm-in.js",
   "scripts": {
     "release": "run-s release:*",
