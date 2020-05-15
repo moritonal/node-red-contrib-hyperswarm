@@ -1,0 +1,43 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+  tags:
+    include: 
+    - refs/tags/v*
+
+name: "Build & Release"
+
+pool:
+  vmImage: 'windows-latest'
+
+stages:
+  - stage: Build    
+    jobs:
+      - job: Build
+        steps:
+          - task: UseNode@1
+
+          - script: npm install
+            displayName: 'NPM Install'
+
+          - pwsh: |
+              mkdir ./artifacts
+              cd ./artifacts
+              npm pack ./../
+            displayName: "Packing up"
+
+          - publish: "./artifacts"
+            displayName: "Publishing artifacts"
+
+  - stage: Release
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+    dependsOn: [ "Build" ]
+    jobs:
+      - job: Release
+        steps:
+          - task: Npm@1
+            inputs:
+              command: 'publish'
+              publishEndpoint: 'NPM JS'
